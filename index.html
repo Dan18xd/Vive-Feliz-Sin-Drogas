@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>El consumo de drogas en la sociedad actual</title>
+<link rel="stylesheet" href="style2.css">
+<style>
+/* ENCABEZADO 2 con triángulo decorativo */
+.header2 {
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(135deg, var(--card), var(--bg));
+    background-image: url('triangulo.png'); /* tu imagen decorativa */
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    border-bottom: 4px solid var(--secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .6);
+    overflow: hidden;
+}
+
+.header2-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.header2 .logo {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--primary);
+    text-shadow: 0 0 8px rgba(56,189,248,.6);
+}
+
+.nav2 ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav2 ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: .3s ease;
+}
+
+.nav2 ul li a:hover {
+    background: var(--primary);
+    color: var(--bg);
+    box-shadow: 0 0 12px var(--secondary);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- MENÚ LATERAL -->
+    <nav class="sidebar">
+        <button class="toggle-menu">☰</button>
+        <ul>
+            <li><a href="inicio.html" target="contentFrame" id="link-inicio">🏠 Inicio</a></li>
+            <li><a href="Proyecto productivo.html" target="contentFrame">📈 Proyecto productivo</a></li>
+            <li><a href="sopa.html" target="contentFrame">🧩 Sopa de Letras</a></li>
+            <li><a href="Crucigrama.html" target="contentFrame">✏️ Crucigrama</a></li>
+            <li><a href="imagentriptico.html" target="contentFrame">📰 Tríptico</a></li>
+            <li><a href="folleto.html" target="contentFrame">📘 Folleto</a></li>
+            <li><a href="flyrer.html" target="contentFrame">🧾 Flyer</a></li>
+            <li><a href="caligrama.html" target="contentFrame">📄 Caligrama</a></li>
+            <li><a href="presentacionmodulo0.html" target="contentFrame">📁 Presentacion PowerPoint</a></li>
+            <li><a href="PDFS.html" target="contentFrame">🖨️ Menu de PDFs</a></li>
+            <li>
+                <a href="https://www.tiktok.com/@daniel.de.la.cruz151/video/7595094362216828168"
+                   target="_blank">🎥 TikTok</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="content">
+
+        <!-- ENCABEZADO 2 -->
+        <header class="header2" id="header2">
+    <div class="header2-container">
+        <div class="logo">🌍 Proyecto 304</div>
+        <nav class="nav2">
+            <ul>
+                <li><a href="inicio.html" target="contentFrame">Inicio</a></li>
+                <li><a href="Proyecto productivo.html" target="contentFrame">Proyecto</a></li>
+                <li><a href="PDFS.html" target="contentFrame">PDFs</a></li>
+                <li><a href="contacto.html" target="contentFrame">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+        <!-- ENCABEZADO 1 -->
+        <header class="animated-header" id="header1">
+            <h2>💊 El consumo de drogas en la sociedad actual 🌍</h2>
+        </header>
+
+        <!-- BANNER VIDEO -->
+        <section class="hero-banner" id="banner">
+            <video autoplay muted loop>
+                <source src="BANER (1200 x 100 px).mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+        </section>
+
+        <!-- IFRAME -->
+        <iframe src="inicio.html" name="contentFrame" id="main-iframe"></iframe>
+
+    </main>
+
+</div>
+
+<script>
+const toggleBtn = document.querySelector('.toggle-menu');
+const sidebar = document.querySelector('.sidebar');
+toggleBtn.onclick = () => sidebar.classList.toggle('hidden');
+
+const header1 = document.getElementById('header1');
+const banner = document.getElementById('banner');
+const iframe = document.getElementById('main-iframe');
+const links = document.querySelectorAll('a[target="contentFrame"]');
+
+links.forEach(link=>{
+    link.addEventListener('click',()=>{
+        iframe.style.opacity = 0;
+        setTimeout(()=>iframe.style.opacity=1,200);
+        const isInicio = link.id === "link-inicio";
+        header1.style.display = isInicio ? "flex" : "none";
+        banner.style.display = isInicio ? "block" : "none";
+    });
+});
+</script>
+
+<!-- PIE DE PÁGINA -->
+<footer class="animated-footer">
+    <div class="footer-social">
+        <div class="footer-box">
+            <img src="Captura de pantalla 2025-11-25 123615.png" alt="Instagram Logo">
+            <p>Instagram<br>@Dan18xd_</p>
+        </div>
+        <div class="footer-box">
+            <img src="Captura de pantalla 2025-11-25 123621.png" alt="Twitter Logo">
+            <p>Twitter<br>@Dan18xd_</p>
+        </div>
+        <div class="footer-box">
+            <img src="Captura de pantalla 2025-11-25 123625.png" alt="YouTube Logo">
+            <p>Youtube<br>@Dan18xd_</p>
+        </div>
+    </div>
+    <div class="footer-info">
+        <p>© 2025 | Derechos reservados</p>
+        <p>Elaborado por Dan18xd_</p>
+        <p>Grupo: 304 · Lista: 25632 · Fecha: 01/12/2025</p>
+        <p>Disponible en plataformas: Blogger y WordPress</p>
+        <p>Comunícate al: 71237895484</p>
+    </div>
+</footer>
+
+</body>
+</html>

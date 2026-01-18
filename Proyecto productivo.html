@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto Productivo Interactivo</title>
+<style>
+:root{
+  --bg:#0f1225;
+  --card:#14172e;
+  --primary:#38bdf8;
+  --secondary:#f472b6;
+  --white:#ffffff;
+  --soft:#94a3b8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+
+/* Fondo animado */
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:40px;
+  background: linear-gradient(270deg, var(--bg), var(--card), rgba(56,189,248,.35), rgba(244,114,182,.35), var(--bg));
+  background-size:600% 600%;
+  animation:fondoPro 14s ease infinite;
+  color: var(--white);
+}
+@keyframes fondoPro{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* Título */
+h1{font-size:2.5rem;margin-bottom:40px;text-align:center;color: var(--primary);text-shadow:2px 2px 6px rgba(0,0,0,0.7);}
+
+/* Botones */
+.button-container{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-bottom:30px;}
+.button{
+  padding:12px 30px;border-radius:30px;background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#000;font-weight:bold;border:none;cursor:pointer;font-size:1em;box-shadow:0 8px 20px rgba(0,0,0,0.5);
+  transition:0.3s ease, transform 0.6s ease;
+}
+.button:hover{transform:scale(1.1) rotateX(10deg);box-shadow:0 0 25px var(--primary),0 0 40px var(--secondary);}
+
+/* Tarjetas de contenido */
+.card{
+  background: var(--card); padding:30px; border-radius:25px; max-width:800px; text-align:left;
+  box-shadow:0 20px 50px rgba(0,0,0,0.7); margin-bottom:20px;
+  animation:cardIn 0.8s ease forwards; opacity:0; transform:scale(0.9) translateY(-20px);
+}
+@keyframes cardIn{to{opacity:1; transform:scale(1) translateY(0);}}
+
+.card h2{color: var(--primary); margin-bottom:15px;}
+.card p{line-height:1.6; margin-bottom:10px; color:var(--white);}
+
+/* Mostrar/Ocultar contenido */
+.card{display:none;}
+.card.active{display:block; animation:cardIn 0.5s ease forwards;}
+
+/* Botón volver dentro del card */
+.back-button{
+  display:inline-block; margin-top:20px; padding:10px 25px; border-radius:25px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary)); color:#000;
+  font-weight:bold; text-decoration:none; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.5);
+  transition:0.3s ease, transform 0.6s ease;
+}
+.back-button:hover{transform:scale(1.1) rotateX(10deg); box-shadow:0 0 25px var(--primary),0 0 40px var(--secondary);}
+</style>
+</head>
+<body>
+
+<h1>Proyecto Productivo Interactivo</h1>
+
+<div class="button-container">
+  <button class="button" onclick="showCard('proyecto')">Proyecto Productivo</button>
+  <button class="button" onclick="showCard('objetivo')">Objetivo General</button>
+  <button class="button" onclick="showCard('narcotrafico')">Impacto del Narcotráfico</button>
+  <button class="button" onclick="showCard('familia')">Papel de la Familia</button>
+  <button class="button" onclick="showCard('redes')">Redes Sociales y Música</button>
+  <button class="button" onclick="showCard('soluciones')">Soluciones</button>
+  <button class="button" onclick="showCard('conclusiones')">Conclusiones</button>
+</div>
+
+<!-- Contenido de cada subtema -->
+<div id="proyecto" class="card">
+  <h2>Proyecto Productivo</h2>
+  <p>CECyTEM CONSTRUYENDO FUTUROS LIBRES Y SANOS</p>
+  <a class="back-button" onclick="hideCards()">⬅ Volver</a>
+</div>
+
+<div id="objetivo" class="card">
+  <h2>Objetivo General</h2>
+  <p>Prevenir y reducir el consumo de sustancias psicoactivas, así como reforzar factores protectores en comunidades mediante el diseño e implementación de talleres informativos y educativos sobre estas sustancias.</p>
+  <a class="back-button" onclick="hideCards()">⬅ Volver</a>
+</div>
+
+<div id="narcotrafico" class="card">
+  <h2>Impacto del Narcotráfico</h2>
+  <p>El narcotráfico afecta la economía mediante pérdidas por inseguridad, corrupción y disminución de inversión. Además, incrementa la violencia urbana y la criminalidad, afectando la estabilidad social y económica.</p>
+  <a class="back-button" onclick="hideCards()">⬅ Volver</a>
+</div>
+
+<div id="familia" class="card">
+  <h2>Papel de la Familia</h2>
+  <p>La familia juega un rol fundamental en la prevención del consumo de drogas, brindando apoyo emocional, educación y supervisión. La comunicación abierta y afectuosa fortalece factores protectores frente al consumo.</p>
+  <a class="back-button" onclick="hideCards()">⬅ Volver</a>
+</div>
+
+<div id="redes" class="card">
+  <h2>Redes Sociales y Música</h2>
+  <p>Las redes sociales y la música influyen en la normalización del consumo de drogas al exponer conductas, símbolos y mensajes que pueden hacer percibir el consumo como algo común o aceptable entre los jóvenes.</p>
+  <a class="back-button" onclick="hideCards()">⬅ Volver</a>
+</div>
+
+<div id="soluciones" class="card">
+  <h2>Soluciones Posibles</h2>
+  <p>Promover programas educativos, talleres de prevención, actividades recreativas saludables, campañas de concienciación y fortalecimiento de la familia y la comunidad para prevenir y reducir el consumo de sustancias.</p>
+  <a class="back-button" onclick="hideCards()">⬅ Volver</a>
+</div>
+
+<div id="conclusiones" class="card">
+  <h2>Conclusiones</h2>
+  <p>El consumo de drogas en la sociedad actual tiene múltiples impactos negativos: económicos, sociales y familiares. La prevención requiere educación, apoyo familiar y comunitario, y regulación social mediante campañas y programas educativos efectivos.</p>
+  <a class="back-button" onclick="hideCards()">⬅ Volver</a>
+</div>
+
+<script>
+function showCard(id){
+  hideCards();
+  document.getElementById(id).classList.add('active');
+}
+function hideCards(){
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c=>c.classList.remove('active'));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Material Visual</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#0f1225;
+  --card:#14172e;
+  --primary:#38bdf8;
+  --secondary:#f472b6;
+  --white:#ffffff;
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+/* FONDO ANIMADO */
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:linear-gradient(
+    270deg,
+    var(--bg),
+    var(--card),
+    rgba(56,189,248,.35),
+    rgba(244,114,182,.35),
+    var(--bg)
+  );
+  background-size:600% 600%;
+  animation:fondoAnimado 14s ease infinite;
+
+  color:var(--white);
+}
+
+/* ANIMACIÓN FONDO */
+@keyframes fondoAnimado{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* CONTENEDOR */
+.wrapper{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  padding:30px;
+}
+
+/* TARJETA IMAGEN */
+.card{
+  background:rgba(20,23,46,.88);
+  padding:20px;
+  border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.7);
+  animation:entrada .8s ease;
+}
+
+/* ENTRADA */
+@keyframes entrada{
+  from{opacity:0; transform:scale(.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+/* IMÁGENES */
+.card img{
+  max-width:100%;
+  height:auto;
+  border-radius:16px;
+  display:block;
+  box-shadow:0 10px 25px rgba(0,0,0,.6);
+  transition:.3s ease;
+}
+
+.card img:hover{
+  transform:scale(1.03);
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="card">
+    <img src="WhatsApp Image 2026-01-13 at 12.43.54 PM.jpeg" alt="Imagen 1">
+  </div>
+
+  <div class="card">
+    <img src="WhatsApp Image 2026-01-13 at 12.43.55 PM.jpeg" alt="Imagen 2">
+  </div>
+
+</div>
+
+</body>
+</html>
+

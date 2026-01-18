@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú Animado de PDFs</title>
+<style>
+:root {
+    --bg:#0f1225;
+    --card:#14172e;
+    --primary:#38bdf8;
+    --secondary:#f472b6;
+    --white:#ffffff;
+    --soft:#94a3b8;
+}
+
+/* RESET */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", sans-serif;
+}
+
+/* --- Fondo animado tipo flyer --- */
+body {
+    min-height:100vh;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    padding:40px;
+    color: var(--white);
+
+    background: linear-gradient(
+        270deg,
+        var(--bg),
+        var(--card),
+        rgba(56,189,248,.2),
+        rgba(244,114,182,.2),
+        var(--bg)
+    );
+    background-size:600% 600%;
+    animation:fondoPro 14s ease infinite;
+}
+
+@keyframes fondoPro {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* --- Título --- */
+h1 {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    animation:entradaTitulo 1s ease forwards;
+    opacity:0;
+}
+
+@keyframes entradaTitulo {
+    from {opacity:0; transform:translateY(-20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+/* --- Grid de PDFs --- */
+.pdf-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* --- Cada ítem --- */
+.pdf-item {
+    background: var(--card);
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    padding: 25px 15px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    animation:popIn 0.6s ease forwards;
+    opacity:0;
+    transform:scale(0.7) rotate(-10deg);
+}
+
+/* --- Pop-in con rotación --- */
+.pdf-item:nth-child(1){ animation-delay:0.1s;}
+.pdf-item:nth-child(2){ animation-delay:0.2s;}
+.pdf-item:nth-child(3){ animation-delay:0.3s;}
+.pdf-item:nth-child(4){ animation-delay:0.4s;}
+.pdf-item:nth-child(5){ animation-delay:0.5s;}
+
+@keyframes popIn {
+    0% {opacity:0; transform:scale(0.7) rotate(-10deg);}
+    50% {transform:scale(1.1) rotate(5deg);}
+    100% {opacity:1; transform:scale(1) rotate(0);}
+}
+
+/* --- Imagen del PDF --- */
+.pdf-item img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation:entradaImg 0.8s ease forwards;
+}
+
+.pdf-item:hover img {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow:0 8px 18px rgba(0,0,0,0.5);
+}
+
+@keyframes entradaImg {
+    from {opacity:0; transform:scale(0.9);}
+    to {opacity:1; transform:scale(1);}
+}
+
+/* --- Texto --- */
+.pdf-item p {
+    margin:0 0 15px 0;
+    font-size:1rem;
+    font-weight:bold;
+    color: var(--primary);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.pdf-item:hover p {
+    color: var(--white);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* --- Botón estilo PowerPoint --- */
+.pdf-item a {
+    display:inline-block;
+    padding:12px 30px;
+    border-radius:35px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color:#000;
+    font-weight:bold;
+    text-decoration:none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+}
+
+.pdf-item a:hover {
+    transform: scale(1.15) rotate(3deg);
+    box-shadow:
+        0 0 25px var(--primary),
+        0 0 40px var(--secondary);
+}
+
+/* --- Tooltip --- */
+.pdf-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--soft);
+    padding: 5px 10px;
+    border-radius:5px;
+    font-size:0.8rem;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.3s ease, bottom 0.3s ease;
+    white-space: nowrap;
+    color: var(--bg);
+    font-weight:bold;
+}
+
+.pdf-item:hover::after{
+    bottom:-45px;
+    opacity:1;
+}
+</style>
+</head>
+<body>
+
+<h1>Menú de PDFs</h1>
+
+<div class="pdf-menu">
+    <div class="pdf-item" data-tooltip="Abrir Tríptico">
+        <img src="Iconopdf.png" alt="Tríptico">
+        <p>Tríptico</p>
+        <a href="Triptico.pdf" target="_blank">Abrir PDF</a>
+    </div>
+
+    <div class="pdf-item" data-tooltip="Abrir Folleto">
+        <img src="Iconopdf.png" alt="Folleto">
+        <p>Folleto</p>
+        <a href="Folleto.pdf" target="_blank">Abrir PDF</a>
+    </div>
+
+    <div class="pdf-item" data-tooltip="Abrir Flyer">
+        <img src="Iconopdf.png" alt="Flyer">
+        <p>Flyer</p>
+        <a href="Flyer.pdf" target="_blank">Abrir PDF</a>
+    </div>
+
+    <div class="pdf-item" data-tooltip="Abrir Caligrama">
+        <img src="Iconopdf.png" alt="Caligrama">
+        <p>Caligrama</p>
+        <a href="Caligrama.pdf" target="_blank">Abrir PDF</a>
+    </div>
+
+    <div class="pdf-item" data-tooltip="Abrir PowerPoint 1">
+        <img src="Iconopdf.png" alt="PowerPoint 1">
+        <p>PowerPoint 1</p>
+        <a href="Power Point.pdf" target="_blank">Abrir PDF</a>
+    </div>
+
+    <div class="pdf-item" data-tooltip="Abrir PowerPoint 2">
+        <img src="Iconopdf.png" alt="PowerPoint 2">
+        <p>PowerPoint 2</p>
+        <a href="CECYTOS.pdf" target="_blank">Abrir PDF</a>
+    </div>
+
+    <div class="pdf-item" data-tooltip="Abrir PowerPoint 3">
+        <img src="Iconopdf.png" alt="PowerPoint 3">
+        <p>PowerPoint 3</p>
+        <a href="Cecytos libres de violencia.pdf" target="_blank">Abrir PDF</a>
+    </div>
+    <div class="pdf-item" data-tooltip="Abrir Todos los archivos">
+        <img src="Iconopdf.png" alt="Todos los archivos">
+        <p>Todos los archivos</p>
+        <a href="Todos los archivos.pdf" target="_blank">Abrir PDF</a>
+    </div>
+</div>
+
+
+</body>
+</html>

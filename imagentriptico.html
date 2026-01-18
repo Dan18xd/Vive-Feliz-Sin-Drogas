@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tríptico</title>
+
+<style>
+:root{
+  --bg:#0f1225;
+  --card:#14172e;
+  --primary:#38bdf8;
+  --secondary:#f472b6;
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* FONDO ANIMADO PRO */
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:linear-gradient(
+    270deg,
+    var(--bg),
+    var(--card),
+    rgba(56,189,248,.35),
+    rgba(244,114,182,.35),
+    var(--bg)
+  );
+  background-size:600% 600%;
+  animation:fondoPro 14s ease infinite;
+}
+
+/* ANIMACIÓN FONDO */
+@keyframes fondoPro{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* IMAGEN */
+img{
+  max-height:90vh;
+  max-width:95vw;
+  border-radius:18px;
+  box-shadow:0 25px 60px rgba(0,0,0,.7);
+  animation:entrada 1s ease;
+}
+
+/* ENTRADA SUAVE */
+@keyframes entrada{
+  from{opacity:0; transform:scale(.9);}
+  to{opacity:1; transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<img src="triptico.jpeg" alt="Tríptico">
+
+</body>
+</html>
