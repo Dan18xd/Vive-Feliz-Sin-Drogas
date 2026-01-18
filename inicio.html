@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+
+<style>
+:root{
+    --bg:#0f1225;
+    --card:#14172e;
+    --primary:#38bdf8;
+    --secondary:#f472b6;
+    --white:#ffffff;
+    --soft:#94a3b8;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    background:
+        radial-gradient(circle at 20% 30%, #1e293b, transparent 40%),
+        radial-gradient(circle at 80% 70%, #312e81, transparent 45%),
+        var(--bg);
+    font-family:"Segoe UI", Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:var(--white);
+    overflow:hidden;
+}
+
+/* ===== ONDAS DE FONDO ===== */
+.wave{
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    border:2px solid rgba(56,189,248,.15);
+    animation:wave 12s linear infinite;
+}
+.wave:nth-child(1){ animation-delay:0s; }
+.wave:nth-child(2){
+    width:800px;
+    height:800px;
+    animation-delay:-6s;
+    border-color:rgba(244,114,182,.15);
+}
+
+@keyframes wave{
+    from{ transform:scale(.6); opacity:.8 }
+    to{ transform:scale(1.6); opacity:0 }
+}
+
+/* ===== TARJETA ===== */
+.card{
+    position:relative;
+    background:var(--card);
+    padding:60px 70px;
+    border-radius:28px;
+    box-shadow:0 40px 80px rgba(0,0,0,.6);
+    text-align:center;
+    z-index:1;
+    animation:cardIn 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ===== TITULO CON GLITCH SUAVE ===== */
+h1{
+    font-size:42px;
+    margin:0;
+    position:relative;
+    animation:fadeUp 1.2s ease forwards;
+}
+
+h1::before,
+h1::after{
+    content:attr(data-text);
+    position:absolute;
+    left:0;
+    width:100%;
+    opacity:.15;
+}
+
+h1::before{
+    color:var(--primary);
+    transform:translate(2px,-2px);
+}
+h1::after{
+    color:var(--secondary);
+    transform:translate(-2px,2px);
+}
+
+@keyframes fadeUp{
+    from{ opacity:0; transform:translateY(15px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+/* ===== SUBTEXTO ===== */
+p{
+    margin-top:18px;
+    color:var(--soft);
+    font-size:17px;
+}
+
+/* ===== BARRA PROGRESIVA ===== */
+.loader{
+    margin:30px auto 20px;
+    width:180px;
+    height:6px;
+    background:#1e223f;
+    border-radius:10px;
+    overflow:hidden;
+}
+.loader span{
+    display:block;
+    height:100%;
+    width:40%;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+    animation:load 2.5s ease-in-out infinite;
+}
+
+@keyframes load{
+    0%{ transform:translateX(-100%) }
+    50%{ transform:translateX(0%) }
+    100%{ transform:translateX(250%) }
+}
+
+/* ===== ICONOS LINEALES ===== */
+.iconos{
+    margin-top:24px;
+    display:flex;
+    justify-content:center;
+    gap:22px;
+    font-size:24px;
+}
+.iconos span{
+    opacity:.7;
+    animation:iconPulse 3.5s ease-in-out infinite;
+}
+.iconos span:nth-child(2){animation-delay:.3s}
+.iconos span:nth-child(3){animation-delay:.6s}
+.iconos span:nth-child(4){animation-delay:.9s}
+.iconos span:nth-child(5){animation-delay:1.2s}
+.iconos span:nth-child(6){animation-delay:1.5s}
+.iconos span:nth-child(7){animation-delay:1.8s}
+
+@keyframes iconPulse{
+    0%,100%{ transform:scale(1); opacity:.6 }
+    50%{ transform:scale(1.2); opacity:1 }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ONDAS -->
+<div class="wave"></div>
+<div class="wave"></div>
+
+<!-- TARJETA -->
+<div class="card">
+    <h1 data-text="Bienvenido">Bienvenido</h1>
+    <p>Explora mis proyectos desde el menú lateral</p>
+
+    <div class="loader">
+        <span></span>
+    </div>
+
+    <div class="iconos">
+        <span>🏠</span>
+        <span>🧩</span>
+        <span>✏️</span>
+        <span>📰</span>
+        <span>📘</span>
+        <span>📄</span>
+        <span>🎥</span>
+    </div>
+</div>
+
+</body>
+</html>
