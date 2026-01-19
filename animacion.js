@@ -24,13 +24,6 @@ function toggleMenu(){
 
 toggleBtn.addEventListener('click', toggleMenu);
 overlay.addEventListener('click', toggleMenu);
-const toggleBtn = document.querySelector('.toggle-menu');
-const sidebar   = document.querySelector('.sidebar');
-
-toggleBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('collapsed');
-});
-
 
 /* ===============================
    LINKS (SIN AFECTAR HOVER)
@@ -120,4 +113,3 @@ window.addEventListener('resize', () => {
         overlay.classList.remove('active');
     }
 });
-
