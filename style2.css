@@ -21,6 +21,7 @@ body{
     min-height:100vh;
     color:var(--white);
     overflow:auto;
+
     background:linear-gradient(
         270deg,
         var(--bg),
@@ -33,6 +34,7 @@ body{
     animation:fondoPro 14s ease infinite;
 }
 
+/* ANIMACIÓN DEL FONDO */
 @keyframes fondoPro {
     0%   { background-position: 0% 50%; }
     50%  { background-position: 100% 50%; }
@@ -54,19 +56,9 @@ body{
     gap:20px;
     box-shadow:8px 0 30px rgba(0,0,0,.6);
     z-index:100;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transition: all 0.5s ease;
 }
 
-/* Botón SIEMPRE visible */
 .toggle-menu{
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 200;
     background:linear-gradient(135deg,var(--primary),var(--secondary));
     border:none;
     color:var(--bg);
@@ -76,6 +68,7 @@ body{
     cursor:pointer;
     transition:.4s;
 }
+
 .toggle-menu:hover{
     transform:scale(1.15) rotate(4deg);
     box-shadow:0 0 25px var(--primary);
@@ -84,10 +77,9 @@ body{
 .sidebar ul{
     list-style:none;
 }
+
 .sidebar ul li a{
-    display:flex;              /* icono + texto */
-    align-items:center;
-    gap:10px;
+    display:block;
     padding:14px 18px;
     margin:8px 0;
     border-radius:14px;
@@ -95,25 +87,37 @@ body{
     text-decoration:none;
     font-weight:600;
     letter-spacing:.5px;
-    transition:.35s ease;
+    position:relative;
+    overflow:hidden;
+    transform-origin:left center;
+    transition:transform .35s ease,
+               box-shadow .35s ease,
+               background .35s ease,
+               color .35s ease;
 }
+
+.sidebar ul li a::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(56,189,248,.25),transparent);
+    transform:translateX(-100%);
+    transition:.5s;
+}
+
+.sidebar ul li a:hover::before{
+    transform:translateX(100%);
+}
+
 .sidebar ul li a:hover{
     background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(244,114,182,.15));
     color:var(--white);
-    transform:translateX(8px);
+    transform:translateX(8px) rotateZ(-2deg);
     box-shadow:0 0 15px rgba(56,189,248,.4),0 0 25px rgba(244,114,182,.2);
 }
 
-/* Texto dentro del enlace */
-.sidebar ul li a span {
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* Cuando el menú está oculto: solo desaparecen las letras */
-.sidebar.hidden ul li a span {
-    opacity: 0;
-    transform: translateX(-10px);
-    overflow: hidden;
+.sidebar ul li a:active{
+    transform:translateX(6px) rotateZ(0deg) scale(.97);
 }
 
 /* ===================== CONTENIDO ===================== */
@@ -121,19 +125,18 @@ body{
     flex:1;
     display:flex;
     flex-direction:column;
-    margin-left:250px;              /* espacio para el menú */
-    width:calc(100% - 250px);       /* ocupa todo el ancho restante */
 }
 
 /* ===================== ENCABEZADO 2 ===================== */
 .header2 {
-    width: 100%;
+    width: 1200px;
     height: 200px;
-    margin: 0;
+    margin: 0 auto;
     position: relative;
     border-bottom: 4px solid var(--secondary);
     box-shadow: 0 4px 12px rgba(0,0,0,.6);
     overflow: hidden;
+
     background: linear-gradient(
         270deg,
         var(--bg),
@@ -146,36 +149,37 @@ body{
     animation: fondoPro 14s ease infinite;
 }
 
+/* Medio óvalo decorativo en el lado derecho */
 .header2::before {
     content: "";
     position: absolute;
-    top: 50%;
-    right: 0;
-    width: 600px;
-    height: 100px;
-    background-image: url("stop-2785450_1280.jpg");
+    top: 50%;              /* lo centra verticalmente */
+    right: 0;              /* pegado al lado derecho */
+    width: 600px;          /* ancho del óvalo */
+    height: 100px;         /* alto del óvalo */
+    background-image: url("stop-2785450_1280.jpg"); /* tu imagen */
     background-size: cover;
     background-position: center;
-    border-radius: 100px 0 0 100px;
-    transform: translateY(-50%);
+    border-radius: 100px 0 0 100px; /* esto crea el medio óvalo */
+    transform: translateY(-50%);    /* ajusta para que quede centrado */
     box-shadow: -4px 0 12px rgba(0,0,0,.4);
     z-index: 0;
 }
+
 
 .header2-container {
     position: relative;
     z-index: 1;
     width: 100%;
     height: 100%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
 .header2 .logo {
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: bold;
     color: var(--white);
     text-shadow: 0 0 8px var(--primary);
@@ -184,15 +188,15 @@ body{
 .nav2 ul {
     list-style: none;
     display: flex;
-    gap: 12px;
+    gap: 24px;
 }
 
 .nav2 ul li a {
     text-decoration: none;
     color: var(--white);
     font-weight: 600;
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
     transition: .3s ease;
 }
 
@@ -203,52 +207,54 @@ body{
 }
 
 /* ===================== ENCABEZADO 1 ===================== */
-.animated-header {
-    width: 100%;
-    height: 100px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg,var(--bg),var(--card));
-    border-bottom: 4px solid var(--primary);
-    box-shadow: 0 6px 20px rgba(0,0,0,.6);
+.animated-header{
+    width:1200px;
+    height:100px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,var(--bg),var(--card));
+    border-bottom:4px solid var(--primary);
+    box-shadow:0 6px 20px rgba(0,0,0,.6);
+    position:relative;
+    overflow:hidden;
 }
 
-.animated-header h2 {
-    font-size: 2.2em;
-    color: var(--white);
-    letter-spacing: 2px;
-    text-shadow: 0 0 15px var(--primary),0 0 25px var(--secondary);
-    animation: textoBrillante 3s ease-in-out infinite, flotarTexto 4s ease-in-out infinite;
+.animated-header h2{
+    font-size:2.2em;
+    color:var(--white);
+    letter-spacing:2px;
+    text-shadow:0 0 15px var(--primary),0 0 25px var(--secondary);
+    animation:textoBrillante 3s ease-in-out infinite,flotarTexto 4s ease-in-out infinite;
 }
 
-@keyframes textoBrillante {
-    0% { text-shadow: 0 0 10px var(--primary); }
-    50% { text-shadow: 0 0 40px var(--secondary); }
-    100% { text-shadow: 0 0 10px var(--primary); }
+@keyframes textoBrillante{
+    0%{text-shadow:0 0 10px var(--primary);}
+    50%{text-shadow:0 0 40px var(--secondary);}
+    100%{text-shadow:0 0 10px var(--primary);}
 }
 
-@keyframes flotarTexto {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+@keyframes flotarTexto{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
 }
 
 /* ===================== BANNER VIDEO ===================== */
-.hero-banner {
-    width: 100%;
-    height: 100px;
-    margin: 0;
-    overflow: hidden;
-    border: 2px solid var(--primary);
-    box-shadow: 0 4px 12px rgba(0,0,0,.5);
+.hero-banner{
+    width:1200px;
+    height:100px;
+    margin:0 auto;
+    overflow:hidden;
+    border:2px solid var(--primary);
+    box-shadow:0 4px 12px rgba(0,0,0,.5);
 }
 
-.hero-banner video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.hero-banner video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 /* ===================== IFRAME ===================== */
@@ -259,42 +265,53 @@ iframe{
 }
 
 /* ===================== FOOTER ===================== */
-.animated-footer {
-    width: 100%;
-    margin: 0;
-    background: linear-gradient(135deg,var(--bg),var(--card));
-    color: var(--white);
-    padding: 30px 20px;
-    border-top: 4px solid var(--primary);
-    box-shadow: 0 -6px 20px rgba(0,0,0,.6);
-    text-align: center;
+.animated-footer{
+    background:linear-gradient(135deg,var(--bg),var(--card));
+    color:var(--white);
+    padding:30px 0;
+    margin-top:40px;
+    border-top:4px solid var(--primary);
+    box-shadow:0 -6px 20px rgba(0,0,0,.6);
+    animation:entradaFooter 1.5s ease;
 }
 
-.footer-social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 20px;
+.footer-social{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-wrap:wrap;
+    max-width:1200px;
+    margin:auto;
+    gap:20px;
+    animation:flotarFooter 4s ease-in-out infinite;
 }
 
-.footer-box {
-    text-align: center;
-    max-width: 180px;
-    transition: .4s ease;
+.footer-box{
+    text-align:center;
+    max-width:150px;
+    transition:.4s ease;
 }
 
-.footer-box img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 5px rgba(56,189,248,.6));
-    transition: transform 0.3s ease;
+.footer-box img{
+    width:80px;
+    height:auto;
+    margin-bottom:10px;
+    filter:drop-shadow(0 0 5px rgba(56,189,248,.6));
+    transition:.4s ease;
 }
 
-.footer-box img:hover {
-    transform: scale(1.1);
+.footer-box:hover img{
+    transform:scale(1.1) rotate(4deg);
+    filter:drop-shadow(0 0 15px var(--secondary));
 }
 
-.footer
+.footer-box p{
+    margin:0;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.5px;
+    color:var(--soft);
+}
+
+.footer-info{
+    text-align:center;}
