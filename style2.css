@@ -54,19 +54,11 @@ body{
     gap:20px;
     box-shadow:8px 0 30px rgba(0,0,0,.6);
     z-index:100;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    transform: translateX(0);
-    opacity: 1;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-}
-
-/* Sidebar oculto */
-.sidebar.hidden {
-    transform: translateX(-100%);
-    opacity: 0;
+    transition: all 0.5s ease;
 }
 
 /* Botón SIEMPRE visible */
@@ -93,7 +85,9 @@ body{
     list-style:none;
 }
 .sidebar ul li a{
-    display:block;
+    display:flex;              /* icono + texto */
+    align-items:center;
+    gap:10px;
     padding:14px 18px;
     margin:8px 0;
     border-radius:14px;
@@ -101,8 +95,6 @@ body{
     text-decoration:none;
     font-weight:600;
     letter-spacing:.5px;
-    position:relative;
-    overflow:hidden;
     transition:.35s ease;
 }
 .sidebar ul li a:hover{
@@ -110,6 +102,18 @@ body{
     color:var(--white);
     transform:translateX(8px);
     box-shadow:0 0 15px rgba(56,189,248,.4),0 0 25px rgba(244,114,182,.2);
+}
+
+/* Texto dentro del enlace */
+.sidebar ul li a span {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Cuando el menú está oculto: solo desaparecen las letras */
+.sidebar.hidden ul li a span {
+    opacity: 0;
+    transform: translateX(-10px);
+    overflow: hidden;
 }
 
 /* ===================== CONTENIDO ===================== */
@@ -257,20 +261,15 @@ iframe{
 /* ===================== FOOTER ===================== */
 .animated-footer {
     width: 100%;
-    max-width: 1600px;           /* igual que encabezado y banner */
-    margin: 0 auto;
+    margin: 0;
     background: linear-gradient(135deg,var(--bg),var(--card));
     color: var(--white);
-    padding: 40px 30px;
+    padding: 30px 20px;
     border-top: 4px solid var(--primary);
     box-shadow: 0 -6px 20px rgba(0,0,0,.6);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
 }
 
-/* Redes sociales */
 .footer-social {
     display: flex;
     justify-content: center;
@@ -298,18 +297,4 @@ iframe{
     transform: scale(1.1);
 }
 
-.footer-box p {
-    font-size: 0.95em;
-    line-height: 1.4;
-    color: var(--soft);
-}
-
-/* Información adicional */
-.footer-info {
-    font-size: 0.9em;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    color: var(--white);
-    opacity: 0.8;
-}
+.footer
