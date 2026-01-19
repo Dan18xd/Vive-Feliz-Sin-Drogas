@@ -119,6 +119,26 @@ body{
 .sidebar ul li a:active{
     transform:translateX(6px) rotateZ(0deg) scale(.97);
 }
+/* ANIMACIÓN BOTONES DEL MENU */
+.sidebar li{
+  transition: 
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+/* OCULTAR BOTONES (NO el botón del menú) */
+.sidebar.collapsed li{
+  opacity:0;
+  transform:translateX(-20px);
+  pointer-events:none;
+}
+
+/* EL BOTÓN DEL MENU SIEMPRE ACTIVO */
+.toggle-menu{
+  pointer-events:auto;
+  opacity:1;
+}
+
 
 /* ===================== CONTENIDO ===================== */
 .content{
@@ -315,3 +335,4 @@ iframe{
 
 .footer-info{
     text-align:center;}
+
