@@ -117,14 +117,15 @@ body{
     flex:1;
     display:flex;
     flex-direction:column;
+    margin-left:250px;              /* espacio para el menú */
+    width:calc(100% - 250px);       /* ocupa todo el ancho restante */
 }
 
 /* ===================== ENCABEZADO 2 ===================== */
 .header2 {
     width: 100%;
-    max-width: 1600px;
     height: 200px;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     border-bottom: 4px solid var(--secondary);
     box-shadow: 0 4px 12px rgba(0,0,0,.6);
@@ -162,7 +163,6 @@ body{
     z-index: 1;
     width: 100%;
     height: 100%;
-    max-width: 1600px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -201,9 +201,8 @@ body{
 /* ===================== ENCABEZADO 1 ===================== */
 .animated-header {
     width: 100%;
-    max-width: 1600px;
     height: 100px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -234,9 +233,8 @@ body{
 /* ===================== BANNER VIDEO ===================== */
 .hero-banner {
     width: 100%;
-    max-width: 1600px;
     height: 100px;
-    margin: 0 auto;
+    margin: 0;
     overflow: hidden;
     border: 2px solid var(--primary);
     box-shadow: 0 4px 12px rgba(0,0,0,.5);
@@ -249,13 +247,6 @@ body{
     display: block;
 }
 
-/* ===================== AJUSTES DE ESPACIADO ===================== */
-.animated-header,
-.hero-banner {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 /* ===================== IFRAME ===================== */
 iframe{
     width:100%;
@@ -266,8 +257,7 @@ iframe{
 /* ===================== FOOTER ===================== */
 .animated-footer {
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
+    margin: 0;
     background: linear-gradient(135deg,var(--bg),var(--card));
     color: var(--white);
     padding: 30px 20px;
@@ -305,4 +295,13 @@ iframe{
 
 .footer-box p {
     text-align: center;
-    font-size: 0.95
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.footer-info {
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin:
