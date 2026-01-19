@@ -56,6 +56,19 @@ body{
     gap:20px;
     box-shadow:8px 0 30px rgba(0,0,0,.6);
     z-index:100;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(0);
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+/* Sidebar oculto con animación */
+.sidebar.hidden {
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
 .toggle-menu{
@@ -153,19 +166,18 @@ body{
 .header2::before {
     content: "";
     position: absolute;
-    top: 50%;              /* lo centra verticalmente */
-    right: 0;              /* pegado al lado derecho */
-    width: 600px;          /* ancho del óvalo */
-    height: 100px;         /* alto del óvalo */
-    background-image: url("stop-2785450_1280.jpg"); /* tu imagen */
+    top: 50%;
+    right: 0;
+    width: 600px;
+    height: 100px;
+    background-image: url("stop-2785450_1280.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 100px 0 0 100px; /* esto crea el medio óvalo */
-    transform: translateY(-50%);    /* ajusta para que quede centrado */
+    border-radius: 100px 0 0 100px;
+    transform: translateY(-50%);
     box-shadow: -4px 0 12px rgba(0,0,0,.4);
     z-index: 0;
 }
-
 
 .header2-container {
     position: relative;
@@ -301,17 +313,4 @@ iframe{
 }
 
 .footer-box:hover img{
-    transform:scale(1.1) rotate(4deg);
-    filter:drop-shadow(0 0 15px var(--secondary));
-}
-
-.footer-box p{
-    margin:0;
-    font-size:14px;
-    font-weight:600;
-    letter-spacing:.5px;
-    color:var(--soft);
-}
-
-.footer-info{
-    text-align:center;}
+    transform:scale(1.1) rotate(4
