@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El consumo de drogas en la sociedad actual</title>
 <link rel="stylesheet" href="style2.css">
 <style>
@@ -60,23 +61,18 @@
     color: var(--bg);
     box-shadow: 0 0 12px var(--secondary);
 }
-
-/* 🔹 Justificar todo el texto */
-body, p, h1, h2, h3, h4, h5, h6, .footer-info, .footer-box p {
-    text-align: justify;
-}
 </style>
 </head>
 
 <body>
 
 <div class="container">
+    
 
-    <!-- Botón SIEMPRE visible -->
-    <button class="toggle-menu">☰</button>
 
     <!-- MENÚ LATERAL -->
     <nav class="sidebar">
+        <button class="toggle-menu">☰</button>
         <ul>
             <li><a href="inicio.html" target="contentFrame" id="link-inicio">🏠 Inicio</a></li>
             <li><a href="Proyecto productivo.html" target="contentFrame">📈 Proyecto productivo</a></li>
@@ -101,18 +97,20 @@ body, p, h1, h2, h3, h4, h5, h6, .footer-info, .footer-box p {
 
         <!-- ENCABEZADO 2 -->
         <header class="header2" id="header2">
-            <div class="header2-container">
-                <div class="logo">🌍 Proyecto 304</div>
-                <nav class="nav2">
-                    <ul>
-                        <li><a href="inicio.html" target="contentFrame">Inicio</a></li>
-                        <li><a href="Proyecto productivo.html" target="contentFrame">Proyecto</a></li>
-                        <li><a href="PDFS.html" target="contentFrame">PDFs</a></li>
-                        <li><a href="contacto.html" target="contentFrame">Contacto</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+    <div class="header2-container">
+        <div class="logo">🌍 Proyecto 304</div>
+        <nav class="nav2">
+            <ul>
+                <li><a href="inicio.html" target="contentFrame">Inicio</a></li>
+                <li><a href="Proyecto productivo.html" target="contentFrame">Proyecto</a></li>
+                <li><a href="PDFS.html" target="contentFrame">PDFs</a></li>
+                <li><a href="contacto.html" target="contentFrame">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
 
         <!-- ENCABEZADO 1 -->
         <header class="animated-header" id="header1">
@@ -155,26 +153,30 @@ links.forEach(link=>{
 });
 </script>
 
+<!-- PIE DE PÁGINA -->
 <footer class="animated-footer">
-  <div class="footer-social">
-    <div class="footer-box">
-      <img src="instagram.png" alt="Instagram">
-      <p>@Dan18xd_</p>
+    <div class="footer-social">
+        <div class="footer-box">
+            <img src="Captura de pantalla 2025-11-25 123615.png" alt="Instagram Logo">
+            <p>Instagram<br>@Dan18xd_</p>
+        </div>
+        <div class="footer-box">
+            <img src="Captura de pantalla 2025-11-25 123621.png" alt="Twitter Logo">
+            <p>Twitter<br>@Dan18xd_</p>
+        </div>
+        <div class="footer-box">
+            <img src="Captura de pantalla 2025-11-25 123625.png" alt="YouTube Logo">
+            <p>Youtube<br>@Dan18xd_</p>
+        </div>
     </div>
-    <div class="footer-box">
-      <img src="twitter.png" alt="Twitter">
-      <p>@Dan18xd_</p>
+    <div class="footer-info">
+        <p>© 2025 | Derechos reservados</p>
+        <p>Elaborado por Dan18xd_</p>
+        <p>Grupo: 304 · Lista: 25632 · Fecha: 01/12/2025</p>
+        <p>Disponible en plataformas: Blogger y WordPress</p>
+        <p>Comunícate al: 71237895484</p>
     </div>
-    <div class="footer-box">
-      <img src="youtube.png" alt="YouTube">
-      <p>@Dan18xd_</p>
-    </div>
-  </div>
-
-  <div class="footer-info">
-    © 2025 | Derechos reservados · Elaborado por Dan18xd_  
-    <br>Grupo: 304 · Lista: 25632 · Fecha: 01/12/2025  
-    <br>Disponible en plataformas: Blogger y WordPress  
-    <br>Comunícate al: 71237895484
-  </div>
 </footer>
+
+</body>
+</html>
