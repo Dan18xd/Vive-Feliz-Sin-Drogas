@@ -13,12 +13,25 @@ body{min-height:100vh; display:flex; flex-direction:column; align-items:center; 
 h1{color:var(--primary);} p{margin-top:15px; line-height:1.5;}
 a{display:inline-block; margin-top:25px; padding:12px 30px; background:linear-gradient(135deg,var(--primary),var(--secondary)); color:#000; font-weight:bold; border-radius:30px; text-decoration:none; transition:0.3s ease, transform 0.3s ease;}
 a:hover{transform:scale(1.1); box-shadow:0 0 25px var(--primary),0 0 40px var(--secondary);}
+
+/* Imagen centrada */
+.card img {
+  display: block;
+  margin: 20px auto; /* la centra horizontalmente */
+  max-width: 100%;   /* se adapta al ancho de la tarjeta */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+}
 </style>
 </head>
 <body>
 <div class="card">
   <h1>Impacto del Narcotráfico</h1>
   <p>Genera ingresos ilegales que afectan la economía formal, limita inversión en servicios sociales y provoca violencia como homicidios, secuestros y extorsión.</p>
+
+  <!-- Tu imagen justificada -->
+  <img src="drogas NARCOTRÁFICO 1" alt="Impacto del narcotráfico">
+
   <a href="index.html">Volver al menú</a>
 </div>
 </body>
