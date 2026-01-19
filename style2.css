@@ -122,7 +122,7 @@ body{
 /* ===================== ENCABEZADO 2 ===================== */
 .header2 {
     width: 100%;
-    max-width: 1600px;        /* más largo horizontalmente */
+    max-width: 1600px;
     height: 200px;
     margin: 0 auto;
     position: relative;
@@ -167,11 +167,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;           /* menos espacio lateral */
+    padding: 0 20px;
 }
 
 .header2 .logo {
-    font-size: 1.8em;          /* más compacto */
+    font-size: 1.8em;
     font-weight: bold;
     color: var(--white);
     text-shadow: 0 0 8px var(--primary);
@@ -180,14 +180,14 @@ body{
 .nav2 ul {
     list-style: none;
     display: flex;
-    gap: 16px;                 /* menos separación entre botones */
+    gap: 12px;
 }
 
 .nav2 ul li a {
     text-decoration: none;
     color: var(--white);
     font-weight: 600;
-    padding: 8px 12px;         /* botones más compactos */
+    padding: 6px 10px;
     border-radius: 6px;
     transition: .3s ease;
 }
@@ -198,13 +198,12 @@ body{
     box-shadow: 0 0 12px var(--secondary);
 }
 
-
 /* ===================== ENCABEZADO 1 ===================== */
 .animated-header {
-    width: 100%;              /* ocupa todo el ancho */
-    max-width: 1600px;        /* más largo horizontalmente */
-    height: 100px;            /* altura igual que antes */
-    margin: 20px auto;
+    width: 100%;
+    max-width: 1600px;
+    height: 100px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -234,10 +233,10 @@ body{
 
 /* ===================== BANNER VIDEO ===================== */
 .hero-banner {
-    width: 100%;              /* ocupa todo el ancho */
-    max-width: 1600px;        /* más largo horizontalmente */
-    height: 100px;            /* altura igual que antes */
-    margin: 20px auto;
+    width: 100%;
+    max-width: 1600px;
+    height: 100px;
+    margin: 0 auto;
     overflow: hidden;
     border: 2px solid var(--primary);
     box-shadow: 0 4px 12px rgba(0,0,0,.5);
@@ -250,7 +249,12 @@ body{
     display: block;
 }
 
-
+/* ===================== AJUSTES DE ESPACIADO ===================== */
+.animated-header,
+.hero-banner {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 /* ===================== IFRAME ===================== */
 iframe{
@@ -260,50 +264,45 @@ iframe{
 }
 
 /* ===================== FOOTER ===================== */
-.animated-footer{
-    background:linear-gradient(135deg,var(--bg),var(--card));
-    color:var(--white);
-    padding:30px 20px;
-    margin-top:40px;
-    border-top:4px solid var(--primary);
-    box-shadow:0 -6px 20px rgba(0,0,0,.6);
-    text-align:center;
-}
-.footer-social{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:40px;
-    margin-bottom:20px;
-}
-.footer-box{
-    text-align:center;
-    max-width:180px;
-    transition:.4s ease;
-}
-.footer-box img{
-    width:80px;
-    height:auto;
-    margin-bottom:10px;
-    filter:drop-shadow(0 0 5px rgba(56,189,248,.6));
-    transition:transform 0.3s ease;
-}
-.footer-box img:hover{
-    transform:scale(1.1);
-}
-.footer-box p{
-    text-align:center;
-    font-size:0.95em;
-    line-height:1.4;
-}
-.footer-info{
-    text-align:center;
-    font-size:0.9em;
-    line-height:1.6;
-    max-width:800px;
-    margin:0 auto;
+.animated-footer {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    background: linear-gradient(135deg,var(--bg),var(--card));
+    color: var(--white);
+    padding: 30px 20px;
+    border-top: 4px solid var(--primary);
+    box-shadow: 0 -6px 20px rgba(0,0,0,.6);
+    text-align: center;
 }
 
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 20px;
+}
 
+.footer-box {
+    text-align: center;
+    max-width: 180px;
+    transition: .4s ease;
+}
 
+.footer-box img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(56,189,248,.6));
+    transition: transform 0.3s ease;
+}
+
+.footer-box img:hover {
+    transform: scale(1.1);
+}
+
+.footer-box p {
+    text-align: center;
+    font-size: 0.95
