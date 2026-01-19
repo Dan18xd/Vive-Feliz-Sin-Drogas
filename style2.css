@@ -257,15 +257,20 @@ iframe{
 /* ===================== FOOTER ===================== */
 .animated-footer {
     width: 100%;
-    margin: 0;
+    max-width: 1600px;           /* igual que encabezado y banner */
+    margin: 0 auto;
     background: linear-gradient(135deg,var(--bg),var(--card));
     color: var(--white);
-    padding: 30px 20px;
+    padding: 40px 30px;
     border-top: 4px solid var(--primary);
     box-shadow: 0 -6px 20px rgba(0,0,0,.6);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
+/* Redes sociales */
 .footer-social {
     display: flex;
     justify-content: center;
@@ -294,14 +299,17 @@ iframe{
 }
 
 .footer-box p {
-    text-align: center;
     font-size: 0.95em;
     line-height: 1.4;
+    color: var(--soft);
 }
 
+/* Información adicional */
 .footer-info {
-    text-align: center;
     font-size: 0.9em;
     line-height: 1.6;
     max-width: 800px;
-    margin:
+    margin: 0 auto;
+    color: var(--white);
+    opacity: 0.8;
+}
