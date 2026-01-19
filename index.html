@@ -60,6 +60,11 @@
     color: var(--bg);
     box-shadow: 0 0 12px var(--secondary);
 }
+
+/* 🔹 Justificar todo el texto */
+body, p, h1, h2, h3, h4, h5, h6, .footer-info, .footer-box p {
+    text-align: justify;
+}
 </style>
 </head>
 
@@ -67,10 +72,11 @@
 
 <div class="container">
 
-    <!-- Botón SIEMPRE visible --> <button class="toggle-menu">☰</button>
+    <!-- Botón SIEMPRE visible -->
+    <button class="toggle-menu">☰</button>
+
     <!-- MENÚ LATERAL -->
     <nav class="sidebar">
-        <button class="toggle-menu">☰</button>
         <ul>
             <li><a href="inicio.html" target="contentFrame" id="link-inicio">🏠 Inicio</a></li>
             <li><a href="Proyecto productivo.html" target="contentFrame">📈 Proyecto productivo</a></li>
@@ -95,20 +101,18 @@
 
         <!-- ENCABEZADO 2 -->
         <header class="header2" id="header2">
-    <div class="header2-container">
-        <div class="logo">🌍 Proyecto 304</div>
-        <nav class="nav2">
-            <ul>
-                <li><a href="inicio.html" target="contentFrame">Inicio</a></li>
-                <li><a href="Proyecto productivo.html" target="contentFrame">Proyecto</a></li>
-                <li><a href="PDFS.html" target="contentFrame">PDFs</a></li>
-                <li><a href="contacto.html" target="contentFrame">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-
+            <div class="header2-container">
+                <div class="logo">🌍 Proyecto 304</div>
+                <nav class="nav2">
+                    <ul>
+                        <li><a href="inicio.html" target="contentFrame">Inicio</a></li>
+                        <li><a href="Proyecto productivo.html" target="contentFrame">Proyecto</a></li>
+                        <li><a href="PDFS.html" target="contentFrame">PDFs</a></li>
+                        <li><a href="contacto.html" target="contentFrame">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
         <!-- ENCABEZADO 1 -->
         <header class="animated-header" id="header1">
@@ -178,5 +182,3 @@ links.forEach(link=>{
 
 </body>
 </html>
-
-
